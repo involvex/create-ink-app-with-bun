@@ -8,6 +8,7 @@ const cli = meow(
 	`
 	Options
 		--typescript		Use TypeScript React template
+		--bun		Use Bun instead of npm
 
 	Usage
 		$ create-ink-app <project-directory>
