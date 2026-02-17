@@ -17,6 +17,16 @@ const copyWithTemplate = async (from, to, variables) => {
 
 	if (typeof variables === 'object') {
 		generatedSource = replaceString(source, '%NAME%', variables.name);
+		generatedSource = replaceString(
+			generatedSource,
+			'%AUTHOR%',
+			variables.author,
+		);
+		generatedSource = replaceString(
+			generatedSource,
+			'%LICENSE%',
+			variables.license,
+		);
 	}
 
 	await fs.writeFile(to, generatedSource);
