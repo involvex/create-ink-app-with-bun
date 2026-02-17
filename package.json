@@ -7,7 +7,9 @@
 	"author": {
 		"name": "involvex"
 	},
-	"bin": "cli.js",
+	"bin": {
+		"create-ink-app-with-bun": "cli.js"
+	},
 	"type": "module",
 	"engines": {
 		"node": ">=16"
