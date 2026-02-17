@@ -3,7 +3,10 @@
 	"version": "3.0.2",
 	"description": "Generate a starter Ink app",
 	"license": "MIT",
-	"repository": "involvex/create-ink-app-with-bun",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/involvex/create-ink-app-with-bun.git"
+	},
 	"author": {
 		"name": "involvex"
 	},
