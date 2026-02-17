@@ -31,22 +31,23 @@
 		"cli"
 	],
 	"dependencies": {
-		"cpy": "^9.0.1",
-		"execa": "^7.1.1",
+		"cpy": "^13.2.1",
+		"execa": "^9.6.1",
 		"listr": "^0.14.3",
-		"make-dir": "^3.1.0",
-		"meow": "^11.0.0",
+		"make-dir": "^5.1.0",
+		"meow": "^14.0.0",
+		"prompts": "^2.4.2",
 		"replace-string": "^4.0.0",
 		"slugify": "^1.6.6"
 	},
 	"devDependencies": {
 		"@vdemedes/prettier-config": "^2.0.1",
-		"ava": "^5.2.0",
-		"del": "^7.0.0",
-		"prettier": "^2.8.7",
-		"strip-ansi": "^7.0.1",
-		"tempy": "^3.0.0",
-		"xo": "^0.53.1"
+		"ava": "^6.4.1",
+		"del": "^8.0.1",
+		"prettier": "^3.8.1",
+		"strip-ansi": "^7.1.2",
+		"tempy": "^3.2.0",
+		"xo": "^1.2.3"
 	},
 	"ava": {
 		"timeout": "5m"
