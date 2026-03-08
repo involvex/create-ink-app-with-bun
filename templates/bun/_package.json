@@ -3,7 +3,9 @@
 	"author": "%AUTHOR%",
 	"version": "0.0.0",
 	"license": "MIT",
-	"bin": "dist/cli.js",
+	"bin": {
+		"%NAME%": "dist/cli.js"
+	},
 	"type": "module",
 	"engines": {
 		"node": ">=16"
@@ -25,7 +27,6 @@
 		"react": "^18.2.0"
 	},
 	"devDependencies": {
-		"@sindresorhus/tsconfig": "^3.0.1",
 		"@types/react": "^18.0.32",
 		"@involvex/prettier-config": "latest",
 		"ava": "^5.2.0",

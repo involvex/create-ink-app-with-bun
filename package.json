@@ -1,7 +1,7 @@
 {
 	"name": "create-ink-app-with-bun",
 	"version": "3.0.4",
-	"description": "Generate a starter Ink app",
+	"description": "Generate a starter Ink app with Bun",
 	"keywords": [
 		"ink",
 		"ink-app",
@@ -10,6 +10,9 @@
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/involvex/create-ink-app-with-bun.git"
+	},
+	"funding": {
+		"url": "https://github.com/sponsors/involvex"
 	},
 	"license": "MIT",
 	"author": {
@@ -41,6 +44,7 @@
 	"dependencies": {
 		"cpy": "^13.2.1",
 		"execa": "^9.6.1",
+		"has-flag": "^5.0.1",
 		"listr": "^0.14.3",
 		"make-dir": "^5.1.0",
 		"meow": "^14.0.0",
@@ -59,5 +63,8 @@
 	},
 	"engines": {
 		"node": ">=16"
+	},
+	"sponsor": {
+		"url": "https://github.com/sponsors/involvex"
 	}
 }

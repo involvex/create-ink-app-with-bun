@@ -1,16 +1,36 @@
 #!/usr/bin/env node
 import createInkApp from './index.js'
 import process from 'node:process'
+import pkg from './package.json'
+import hasFlag from 'has-flag'
 import prompts from 'prompts'
 import path from 'node:path'
 import meow from 'meow'
-
+if (hasFlag('about') || hasFlag('--about')) {
+	console.log(pkg.name, ' v', pkg.version)
+	console.log(pkg.author.name)
+	console.log(pkg.description)
+	console.log(pkg.repository.url)
+	console.log(pkg.sponsor.url)
+	process.exit(0)
+} else if (
+	hasFlag('version') ||
+	hasFlag('--version') ||
+	hasFlag('v') ||
+	hasFlag('-v')
+) {
+	console.log(pkg.version)
+	process.exit(0)
+}
 const cli = meow(
 	`
 	Options
 		--typescript		Use TypeScript React template
 		--bun			Use Bun instead of npm
 		--template		Specify a template (e.g. bun)
+		--help			Show help
+		--version		Show version
+		--about			Show about
 
 	Usage
 		$ create-ink-app <project-directory>
@@ -31,6 +51,15 @@ const cli = meow(
 			},
 			template: {
 				type: 'string',
+			},
+			help: {
+				type: 'boolean',
+			},
+			version: {
+				type: 'boolean',
+			},
+			about: {
+				type: 'boolean',
 			},
 		},
 	},

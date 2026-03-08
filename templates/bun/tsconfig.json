@@ -1,8 +1,15 @@
 {
-	"extends": "@sindresorhus/tsconfig",
 	"compilerOptions": {
+		"target": "ESNext",
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
 		"outDir": "dist",
-		"jsx": "react-jsx"
+		"jsx": "react-jsx",
+		"resolveJsonModule": true,
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true
 	},
-	"include": ["src"]
+	"exclude": ["node_modules", "dist"],
+	"include": ["src", "test.tsx", "eslint.config.ts"]
 }
