@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import createInkApp from './index.js'
 import process from 'node:process'
-import pkg from './package.json'
+import pkg from './package.json' with {type: 'json'}
 import hasFlag from 'has-flag'
 import prompts from 'prompts'
 import path from 'node:path'
