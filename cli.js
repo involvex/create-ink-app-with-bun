@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-import process from 'node:process';
-import path from 'node:path';
-import meow from 'meow';
-import prompts from 'prompts';
-import createInkApp from './index.js';
+import createInkApp from './index.js'
+import process from 'node:process'
+import prompts from 'prompts'
+import path from 'node:path'
+import meow from 'meow'
 
 const cli = meow(
 	`
@@ -34,12 +34,12 @@ const cli = meow(
 			},
 		},
 	},
-);
+)
 
-const projectDirectoryPath = path.resolve(process.cwd(), cli.input[0] || '.');
+const projectDirectoryPath = path.resolve(process.cwd(), cli.input[0] || '.')
 
 try {
-	console.log();
+	console.log()
 
 	const response = await prompts([
 		{
@@ -54,16 +54,16 @@ try {
 			message: 'What is the license?',
 			initial: 'MIT',
 		},
-	]);
+	])
 
 	await createInkApp(projectDirectoryPath, {
 		...cli.flags,
 		author: response.author,
 		license: response.license,
-	});
+	})
 
-	const pkgName = path.basename(projectDirectoryPath);
-	const relativePath = path.relative(process.cwd(), projectDirectoryPath);
+	const pkgName = path.basename(projectDirectoryPath)
+	const relativePath = path.relative(process.cwd(), projectDirectoryPath)
 
 	console.log(
 		[
@@ -84,8 +84,8 @@ try {
 			.filter(line => line !== undefined)
 			.map(line => `  ${line}`)
 			.join('\n'),
-	);
+	)
 } catch (error) {
-	console.error(error.stack);
-	process.exit(1);
+	console.error(error.stack)
+	process.exit(1)
 }

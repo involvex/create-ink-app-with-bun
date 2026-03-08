@@ -1,5 +1,5 @@
-import React from 'react';
-import {Text, Box} from 'ink';
+import {Text, Box} from 'ink'
+import React from 'react'
 
 export default function Help() {
 	return (
@@ -14,5 +14,5 @@ export default function Help() {
 			<Text> $ %NAME% --name=Jane</Text>
 			<Text> Hello, Jane</Text>
 		</Box>
-	);
+	)
 }

@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-import React from 'react';
-import {render} from 'ink';
-import meow from 'meow';
-import App from './app.js';
-import Help from './commands/help.js';
+import Help from './commands/help.js'
+import App from './app.js'
+import {render} from 'ink'
+import React from 'react'
+import meow from 'meow'
 
 const cli = meow(
 	`
@@ -25,10 +25,10 @@ const cli = meow(
 			},
 		},
 	},
-);
+)
 
 if (cli.input[0] === 'help') {
-	render(<Help />);
+	render(<Help />)
 } else {
-	render(<App name={cli.flags.name} />);
+	render(<App name={cli.flags.name} />)
 }

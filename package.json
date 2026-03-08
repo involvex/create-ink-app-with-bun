@@ -1,38 +1,43 @@
 {
 	"name": "create-ink-app-with-bun",
-	"version": "3.0.3",
+	"version": "3.0.4",
 	"description": "Generate a starter Ink app",
-	"license": "MIT",
+	"keywords": [
+		"ink",
+		"ink-app",
+		"cli"
+	],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/involvex/create-ink-app-with-bun.git"
 	},
+	"license": "MIT",
 	"author": {
 		"name": "involvex"
 	},
+	"type": "module",
 	"bin": {
 		"create-ink-app-with-bun": "cli.js"
-	},
-	"type": "module",
-	"engines": {
-		"node": ">=16"
-	},
-	"scripts": {
-		"test": "xo && ava",
-		"dev": "bun run cli.js"
 	},
 	"files": [
 		"index.js",
 		"cli.js",
 		"templates"
 	],
-	"keywords": [
-		"ink",
-		"ink-app",
-		"ink",
-		"ink-app",
-		"cli"
-	],
+	"scripts": {
+		"dev": "bun run cli.js",
+		"test": "xo && ava"
+	},
+	"xo": {
+		"ignores": [
+			"templates/**"
+		],
+		"prettier": true
+	},
+	"prettier": "@involvex/prettier-config",
+	"ava": {
+		"timeout": "5m"
+	},
 	"dependencies": {
 		"cpy": "^13.2.1",
 		"execa": "^9.6.1",
@@ -44,7 +49,7 @@
 		"slugify": "^1.6.6"
 	},
 	"devDependencies": {
-		"@vdemedes/prettier-config": "^2.0.1",
+		"@involvex/prettier-config": "latest",
 		"ava": "^6.4.1",
 		"del": "^8.0.1",
 		"prettier": "^3.8.1",
@@ -52,14 +57,7 @@
 		"tempy": "^3.2.0",
 		"xo": "^1.2.3"
 	},
-	"ava": {
-		"timeout": "5m"
-	},
-	"xo": {
-		"prettier": true,
-		"ignores": [
-			"templates/**"
-		]
-	},
-	"prettier": "@vdemedes/prettier-config"
+	"engines": {
+		"node": ">=16"
+	}
 }

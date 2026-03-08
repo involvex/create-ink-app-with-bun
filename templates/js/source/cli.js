@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-import React from 'react';
-import {render} from 'ink';
-import meow from 'meow';
-import App from './app.js';
+import App from './app.js'
+import {render} from 'ink'
+import React from 'react'
+import meow from 'meow'
 
 const cli = meow(
 	`
@@ -19,6 +19,6 @@ const cli = meow(
 	{
 		importMeta: import.meta,
 	},
-);
+)
 
-render(<App name={cli.flags.name} />);
+render(<App name={cli.flags.name} />)
