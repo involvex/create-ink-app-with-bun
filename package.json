@@ -1,6 +1,6 @@
 {
 	"name": "create-ink-app-with-bun",
-	"version": "3.0.5",
+	"version": "3.0.6",
 	"description": "Generate a starter Ink app with Bun",
 	"keywords": [
 		"ink",
