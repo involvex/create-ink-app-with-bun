@@ -3,7 +3,7 @@ import DisplayVersion from './commands/version.js'
 import About from './commands/about.js'
 import {Text, Box, useInput} from 'ink'
 import Help from './commands/help.js'
-import pkg from '../../package.json' with {type: 'json'}
+import pkg from '../package.json' with {type: 'json'}
 import {useState} from 'react'
 
 type AppState = 'menu' | 'help' | 'about' | 'version'
