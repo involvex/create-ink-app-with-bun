@@ -1,32 +1,33 @@
+import tseslintPlugin from '@typescript-eslint/eslint-plugin'
+import tseslintParser from '@typescript-eslint/parser'
 import pluginReact from 'eslint-plugin-react'
-import {defineConfig} from 'eslint/config'
-import tseslint from 'typescript-eslint'
 import globals from 'globals'
-import js from '@eslint/js'
 
-export default defineConfig([
+export default [
 	{
-		files: ['**/*.{js,mjs,cjs}'],
-		plugins: {js},
-		extends: ['js/recommended'],
-		languageOptions: {globals: {...globals.node}},
-	},
-	...tseslint.configs.recommended,
-	{
-		files: ['**/*.{ts,mts,cts,jsx,tsx}'],
+		files: ['**/*.{ts,tsx}'],
 		languageOptions: {
 			globals: {...globals.node},
 			ecmaVersion: 'latest',
 			sourceType: 'module',
+			parser: tseslintParser,
 			parserOptions: {
 				projectService: true,
 				tsconfigRootDir: import.meta.dirname,
 			},
 		},
+		plugins: {
+			'@typescript-eslint': tseslintPlugin,
+		},
+		rules: {
+			...tseslintPlugin.configs.recommended.rules,
+		},
 	},
 	{
-		files: ['**/*.jsx', '**/*.tsx'],
-		...pluginReact.configs.flat['recommended'],
+		files: ['**/*.tsx'],
+		plugins: {
+			react: pluginReact,
+		},
 		settings: {
 			react: {version: 'detect'},
 			jsxRuntime: 'automatic',
@@ -42,6 +43,8 @@ export default defineConfig([
 					caughtErrorsIgnorePattern: '^_',
 				},
 			],
+			'@typescript-eslint/no-explicit-any': 'warn',
+			'no-console': 'warn',
 		},
 	},
-])
+]

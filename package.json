@@ -30,12 +30,10 @@
 	"scripts": {
 		"dev": "bun run cli.js",
 		"format": "prettier --write .",
-		"test": "xo && ava"
+		"lint": "xo",
+		"test": "ava"
 	},
 	"xo": {
-		"ignores": [
-			"templates/**"
-		],
 		"prettier": true
 	},
 	"prettier": "@involvex/prettier-config",

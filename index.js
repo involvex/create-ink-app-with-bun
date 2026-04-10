@@ -27,6 +27,11 @@ const copyWithTemplate = async (from, to, variables) => {
 			'%LICENSE%',
 			variables.license,
 		)
+		generatedSource = replaceString(
+			generatedSource,
+			'%DESCRIPTION%',
+			variables.description || '',
+		)
 	}
 
 	await fs.writeFile(to, generatedSource)
@@ -34,7 +39,18 @@ const copyWithTemplate = async (from, to, variables) => {
 
 const createInkApp = (
 	projectDirectoryPath = process.cwd(),
-	{typescript, silent, bun, template, author, license},
+	{
+		typescript,
+		silent,
+		bun,
+		template,
+		author,
+		license,
+		description,
+		components,
+		gitInit = true,
+		install = true,
+	},
 ) => {
 	const pkgName = slugify(path.basename(projectDirectoryPath))
 	const useBun = bun || template === 'bun'
@@ -68,6 +84,7 @@ const createInkApp = (
 						name: pkgName,
 						author: author || '',
 						license: license || 'MIT',
+						description: description || '%DESCRIPTION%',
 					}
 
 					return new Listr([
@@ -236,8 +253,8 @@ const createInkApp = (
 								)
 
 								await fs.copyFile(
-									fromPath('eslint.config.ts'),
-									toPath(projectDirectoryPath, 'eslint.config.ts'),
+									fromPath('eslint.config.mjs'),
+									toPath(projectDirectoryPath, 'eslint.config.mjs'),
 								)
 							},
 						},
@@ -246,6 +263,7 @@ const createInkApp = (
 			},
 			{
 				title: 'Install dependencies',
+				enabled: () => install,
 				async task() {
 					if (useBun) {
 						await execaInDirectory('bun', ['install'])
@@ -274,6 +292,7 @@ const createInkApp = (
 			},
 			{
 				title: 'Link executable',
+				enabled: () => install,
 				async task(_, task) {
 					try {
 						if (useBun) {
@@ -288,6 +307,13 @@ const createInkApp = (
 					} catch {
 						task.skip('`npm link` failed, try running it yourself')
 					}
+				},
+			},
+			{
+				title: 'Initialize git repository',
+				enabled: () => gitInit,
+				async task() {
+					await execaInDirectory('git', ['init'])
 				},
 			},
 		],

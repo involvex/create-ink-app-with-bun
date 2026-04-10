@@ -31,9 +31,11 @@
 		"meow": "latest",
 		"react": "latest",
 		"ink-select-input": "latest",
-		"ink-text-input": "latest"
+		"ink-text-input": "latest",
+		"react-devtools-core": "latest"
 	},
 	"devDependencies": {
+		"@types/node": "latest",
 		"@types/react": "latest",
 		"@types/ink": "latest",
 		"@types/ink-text-input": "latest",
@@ -49,6 +51,7 @@
 		"eslint": "latest",
 		"jiti": "latest",
 		"@eslint/js": "latest",
+		"globals": "latest",
 		"@typescript-eslint/eslint-plugin": "latest",
 		"@typescript-eslint/parser": "latest",
 		"prettier-plugin-organize-imports": "^4.3.0",

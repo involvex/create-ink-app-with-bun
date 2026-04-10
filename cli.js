@@ -24,21 +24,25 @@ if (hasFlag('about') || hasFlag('--about')) {
 }
 const cli = meow(
 	`
-	Options
-		--typescript		Use TypeScript React template
-		--bun			Use Bun instead of npm
-		--template		Specify a template (e.g. bun)
-		--help			Show help
-		--version		Show version
-		--about			Show about
+Options
+	--typescript		Use TypeScript React template
+	--bun			Use Bun instead of npm
+	--template		Specify a template (e.g. bun)
+	--no-git-init		Skip git initialization
+	--no-install		Skip dependency installation
+	--skip-prompts		Use defaults for all options
+	--help			Show help
+	--version		Show version
+	--about			Show about
 
-	Usage
-		$ create-ink-app <project-directory>
+Usage
+	$ create-ink-app <project-directory>
 
-	Examples
-		$ create-ink-app-with-bun my-cli
-		$ create-ink-app-with-bun .
-		$ create-ink-app-with-bun my-cli --bun
+Examples
+	$ create-ink-app-with-bun my-cli
+	$ create-ink-app-with-bun .
+	$ create-ink-app-with-bun my-cli --bun
+	$ create-ink-app-with-bun my-cli --bun --no-git-init --no-install
 `,
 	{
 		importMeta: import.meta,
@@ -51,6 +55,18 @@ const cli = meow(
 			},
 			template: {
 				type: 'string',
+			},
+			gitInit: {
+				type: 'boolean',
+				default: true,
+			},
+			install: {
+				type: 'boolean',
+				default: true,
+			},
+			skipPrompts: {
+				type: 'boolean',
+				default: false,
 			},
 			help: {
 				type: 'boolean',
@@ -68,27 +84,80 @@ const cli = meow(
 const projectDirectoryPath = path.resolve(process.cwd(), cli.input[0] || '.')
 
 try {
-	console.log()
+	const useDefaults = cli.flags.skipPrompts
 
-	const response = await prompts([
-		{
-			type: 'text',
-			name: 'author',
-			message: 'Who is the author?',
-			initial: 'author',
-		},
-		{
-			type: 'text',
-			name: 'license',
-			message: 'What is the license?',
-			initial: 'MIT',
-		},
-	])
+	const promptsOptions = useDefaults
+		? {
+				author: 'author',
+				license: 'MIT',
+				description: 'A modern CLI app built with Ink and Bun',
+				components: [],
+			}
+		: await prompts([
+				{
+					type: 'text',
+					name: 'author',
+					message: 'Who is the author?',
+					initial: 'author',
+				},
+				{
+					type: 'text',
+					name: 'license',
+					message: 'What is the license?',
+					initial: 'MIT',
+				},
+				{
+					type: 'text',
+					name: 'description',
+					message: 'Package description?',
+					initial: 'A modern CLI app built with Ink and Bun',
+				},
+				{
+					type: 'multiselect',
+					name: 'components',
+					message: 'Select additional TUI components to install:',
+					hint: 'Space to select, Enter to confirm',
+					choices: [
+						{
+							title: 'ink-spinner',
+							description: 'Loading animations',
+							value: 'ink-spinner',
+						},
+						{
+							title: 'ink-progress-bar',
+							description: 'Progress indicators',
+							value: 'ink-progress-bar',
+						},
+						{
+							title: 'ink-table',
+							description: 'Data tables display',
+							value: 'ink-table',
+						},
+						{
+							title: 'ink-box',
+							description: 'Bordered containers',
+							value: 'ink-box',
+						},
+						{
+							title: 'chalk',
+							description: 'Color utilities (for text gradients)',
+							value: 'chalk',
+						},
+						{
+							title: 'ink-big-text',
+							description: 'ASCII big text display',
+							value: 'ink-big-text',
+						},
+					],
+				},
+			])
 
 	await createInkApp(projectDirectoryPath, {
 		...cli.flags,
-		author: response.author,
-		license: response.license,
+		author: promptsOptions.author,
+		license: promptsOptions.license,
+		description: promptsOptions.description,
+		components: promptsOptions.components,
 	})
 
 	const pkgName = path.basename(projectDirectoryPath)
