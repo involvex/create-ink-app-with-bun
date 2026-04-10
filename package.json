@@ -29,6 +29,7 @@
 	],
 	"scripts": {
 		"dev": "bun run cli.js",
+		"format": "prettier --write .",
 		"test": "xo && ava"
 	},
 	"xo": {
@@ -47,17 +48,17 @@
 		"has-flag": "^5.0.1",
 		"listr": "^0.14.3",
 		"make-dir": "^5.1.0",
-		"meow": "^14.0.0",
+		"meow": "^14.1.0",
 		"prompts": "^2.4.2",
 		"replace-string": "^4.0.0",
-		"slugify": "^1.6.6"
+		"slugify": "^1.6.9"
 	},
 	"devDependencies": {
 		"@involvex/prettier-config": "latest",
 		"ava": "^6.4.1",
 		"del": "^8.0.1",
-		"prettier": "^3.8.1",
-		"strip-ansi": "^7.1.2",
+		"prettier": "^3.8.2",
+		"strip-ansi": "^7.2.0",
 		"tempy": "^3.2.0",
 		"xo": "^1.2.3"
 	},

@@ -36,9 +36,9 @@ const cli = meow(
 		$ create-ink-app <project-directory>
 
 	Examples
-		$ create-ink-app my-cli
-		$ create-ink-app .
-		$ create-ink-app my-cli --bun
+		$ create-ink-app-with-bun my-cli
+		$ create-ink-app-with-bun .
+		$ create-ink-app-with-bun my-cli --bun
 `,
 	{
 		importMeta: import.meta,

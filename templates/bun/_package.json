@@ -1,8 +1,13 @@
 {
 	"name": "%NAME%",
 	"author": "%AUTHOR%",
+	"description": "%DESCRIPTION%",
 	"version": "0.0.0",
 	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": ""
+	},
 	"bin": {
 		"%NAME%": "dist/cli.js"
 	},
@@ -11,55 +16,44 @@
 		"node": ">=16"
 	},
 	"scripts": {
-		"build": "tsc",
-		"dev": "bun run src/cli.tsx",
+		"build": "bun build src/cli.tsx --outdir dist --target node",
+		"start": "bun run src/cli.tsx",
+		"dev": "bun run --hot src/cli.tsx",
 		"format": "prettier --write .",
 		"lint": "eslint src",
 		"lint:fix": "eslint src --fix",
 		"typecheck": "tsc --noEmit",
-		"prebuild": "bun run format && bun run lint:fix && bun run typecheck",
-		"test": "prettier --check . && xo && ava"
+		"prebuild": "bun run format && bun run lint:fix && bun run typecheck"
 	},
 	"files": ["dist"],
 	"dependencies": {
-		"ink": "^4.1.0",
-		"meow": "^11.0.0",
-		"react": "^18.2.0"
+		"ink": "latest",
+		"meow": "latest",
+		"react": "latest",
+		"ink-select-input": "latest",
+		"ink-text-input": "latest"
 	},
 	"devDependencies": {
-		"@types/react": "^18.0.32",
+		"@types/react": "latest",
+		"@types/ink": "latest",
+		"@types/ink-text-input": "latest",
+		"@types/ink-select-input": "latest",
 		"@involvex/prettier-config": "latest",
-		"ava": "^5.2.0",
-		"chalk": "^5.2.0",
-		"eslint-config-xo-react": "^0.27.0",
-		"eslint-plugin-react": "^7.32.2",
-		"eslint-plugin-react-hooks": "^4.6.0",
+		"chalk": "latest",
+		"eslint-plugin-react": "latest",
+		"eslint-plugin-react-hooks": "latest",
 		"ink-testing-library": "^3.0.0",
 		"prettier": "latest",
-		"ts-node": "^10.9.1",
-		"typescript": "^5.0.3",
-		"xo": "^0.53.1",
+		"ts-node": "latest",
+		"typescript": "latest",
 		"eslint": "latest",
 		"jiti": "latest",
 		"@eslint/js": "latest",
-		"typescript-eslint": "latest",
+		"@typescript-eslint/eslint-plugin": "latest",
+		"@typescript-eslint/parser": "latest",
 		"prettier-plugin-organize-imports": "^4.3.0",
 		"prettier-plugin-packagejson": "^3.0.0",
 		"prettier-plugin-sort-imports": "^1.8.10"
-	},
-	"ava": {
-		"extensions": {
-			"ts": "module",
-			"tsx": "module"
-		},
-		"nodeArguments": ["--loader=ts-node/esm"]
-	},
-	"xo": {
-		"extends": "xo-react",
-		"prettier": true,
-		"rules": {
-			"react/prop-types": "off"
-		}
 	},
 	"prettier": "@involvex/prettier-config"
 }

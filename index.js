@@ -213,11 +213,18 @@ const createInkApp = (
 									variables,
 								)
 
+								// await fs.copyFile(
+								// 	fromPath('test.tsx'),
+								// 	toPath(projectDirectoryPath, 'test.tsx'),
+								// )
 								await fs.copyFile(
-									fromPath('test.tsx'),
-									toPath(projectDirectoryPath, 'test.tsx'),
+									fromPath('_gitignore'),
+									toPath(projectDirectoryPath, '.gitignore'),
 								)
-
+								await fs.copyFile(
+									fromPath('_prettierignore'),
+									toPath(projectDirectoryPath, '.prettierignore'),
+								)
 								await fs.copyFile(
 									fromPath('tsconfig.json'),
 									toPath(projectDirectoryPath, 'tsconfig.json'),

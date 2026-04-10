@@ -1,11 +1,13 @@
 # Copilot guidance for create-ink-app-with-bun
 
 Purpose
+
 - Provide concise, repo-specific instructions for Copilot sessions: how to build/test/lint, the big-picture architecture, and repository conventions Copilot should know when making changes.
 
 ---
 
 Build / test / lint (repository root)
+
 - Install dependencies:
   - npm: `npm install`
   - bun: `bun install` (when working with the Bun template or using Bun locally)
@@ -18,6 +20,7 @@ Build / test / lint (repository root)
 - Format: `npx prettier --write .` (templates are copied into created projects and formatting may vary per template).
 
 Notes about generated projects (template-specific)
+
 - Bun template (templates/bun): use Bun commands inside the generated project: `bun run dev`, `bun run build`, `bun run test`.
 - JS / TS templates: use npm scripts inside the generated project: `npm run dev`, `npm run build`, `npm test`.
 - To try the generated CLI locally: after scaffold completes run `npm link` (the generator attempts this), then invoke the linked binary by package name or use `npx <pkg>`.
@@ -25,6 +28,7 @@ Notes about generated projects (template-specific)
 ---
 
 High-level architecture (big picture)
+
 - Entrypoint: `cli.js` — parses flags (meow), prompts for author/license (prompts), resolves target path, and delegates to the scaffolder.
 - Core scaffolder: `index.js` — exports `createInkApp(projectDir, options)`. This function:
   - Chooses the template directory (templates/bun | templates/ts | templates/js)
@@ -42,6 +46,7 @@ High-level architecture (big picture)
 ---
 
 Key repository conventions / patterns Copilot should follow
+
 - Template placeholders: Templates use `%NAME%`, `%AUTHOR%`, and `%LICENSE%`. Updates that introduce new placeholders must be handled by `copyWithTemplate()` in `index.js`.
 - Underscore file convention: Files under templates named with a leading underscore map to target filenames (e.g., `_gitignore` -> `.gitignore`, `_package.json` is used as the generated package.json). Keep that mapping consistent when adding new template files.
 - Template selection flags: `--bun` or `--template bun` selects the Bun template; `--typescript` selects the TS template otherwise JS is used.
@@ -53,6 +58,7 @@ Key repository conventions / patterns Copilot should follow
 ---
 
 Where to look when asked to change build/test behavior
+
 - `package.json` (scripts & dependencies)
 - `index.js` (Listr tasks, `execaInDirectory`, `copyWithTemplate` logic)
 - `cli.js` (flag parsing and prompts)
@@ -62,6 +68,7 @@ Where to look when asked to change build/test behavior
 ---
 
 Useful quick search terms for Copilot sessions
+
 - `copyWithTemplate` — search to find where placeholders are applied
 - `templates/bun` | `templates/ts` | `templates/js` — for template-specific files
 - `Listr` / `Install dependencies` / `Link executable` — to find task flow in `index.js`
@@ -70,14 +77,14 @@ Useful quick search terms for Copilot sessions
 ---
 
 Related docs incorporated
+
 - README.md: basic usage examples (`npx create-ink-app my-cli`) and demo
 - GEMINI.md: project overview, template descriptions, and template-specific commands (copied into this guidance where relevant)
 
 ---
 
 If making changes that affect generated projects, remember:
+
 - Update `index.js` Listr tasks if build/install steps change.
 - Update `test.js` if the generator's install/link behavior or produced binary name changes.
 - Maintain the placeholder replacement rules and underscore-to-dotfile mapping.
-
-

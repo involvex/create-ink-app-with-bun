@@ -11,5 +11,5 @@
 		"skipLibCheck": true
 	},
 	"exclude": ["node_modules", "dist"],
-	"include": ["src", "test.tsx", "eslint.config.ts"]
+	"include": ["src", "eslint.config.ts"]
 }

@@ -7,12 +7,16 @@
 This helper tool scaffolds out basic project structure for Ink apps and lets you avoid the boilerplate and get to building beautiful CLIs in no time.
 
 ```bash
-$ npx create-ink-app js-app
+$ npx create-ink-app-with-bun js-app
 $ js-app
 
 # Or create with TypeScript
-$ npx create-ink-app --typescript ts-app
+$ npx create-ink-app-with-bun --typescript ts-app
 $ ts-app
+
+$ Or create with Bun
+$ npx create-ink-app-with-bun --template bun
+$ bun-app
 ```
 
 ![](media/demo.gif)
