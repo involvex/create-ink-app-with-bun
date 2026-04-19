@@ -8,6 +8,16 @@
 $ npm install --global %NAME%
 ```
 
+## Development
+
+```bash
+$ bun run dev     # Start the CLI with hot reload
+$ bun run build  # Build for production
+$ bun test      # Run tests
+$ bun run typecheck  # Type check
+$ bun run lint   # Lint
+```
+
 ## CLI
 
 ```

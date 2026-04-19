@@ -14,8 +14,14 @@ interface MenuProps {
 
 export default function Menu({title, items, onSelect}: MenuProps) {
 	return (
-		<Box flexDirection="column" paddingX={2}>
-			<Text bold color="cyan">
+		<Box
+			flexDirection="column"
+			paddingX={2}
+		>
+			<Text
+				bold
+				color="cyan"
+			>
 				{title}
 			</Text>
 			<Box>

@@ -22,17 +22,29 @@ export default function Settings() {
 	}))
 
 	return (
-		<Box flexDirection="column" padding={1}>
+		<Box
+			flexDirection="column"
+			padding={1}
+		>
 			<Box marginBottom={1}>
-				<Text bold color="cyan">
+				<Text
+					bold
+					color="cyan"
+				>
 					─── Settings ───
 				</Text>
 			</Box>
-			<Box flexDirection="column" paddingLeft={2}>
+			<Box
+				flexDirection="column"
+				paddingLeft={2}
+			>
 				<Box marginBottom={1}>
 					<Text color="white">Theme:</Text>
 				</Box>
-				<Box marginLeft={2} marginBottom={1}>
+				<Box
+					marginLeft={2}
+					marginBottom={1}
+				>
 					<SelectInput
 						items={themeItems}
 						onSelect={(item: SelectItem<Theme>) => setTheme(item.value)}
@@ -51,7 +63,11 @@ export default function Settings() {
 					<Text dimColor>Toggle with Space</Text>
 				</Box>
 			</Box>
-			<Box marginTop={2} borderStyle="single" padding={1}>
+			<Box
+				marginTop={2}
+				borderStyle="single"
+				padding={1}
+			>
 				<Text dimColor>
 					Current: {theme} theme, animations {animations ? 'on' : 'off'}
 				</Text>

@@ -40,27 +40,42 @@ export default function Welcome({onComplete}: WelcomeProps) {
 			paddingY={10}
 		>
 			<Box>
-				<Text bold color="cyan">
+				<Text
+					bold
+					color="cyan"
+				>
 					██╗ ███████╗██╗ ██╗██╗██████╗ ███████╗
 				</Text>
 			</Box>
 			<Box>
-				<Text bold color="cyan">
+				<Text
+					bold
+					color="cyan"
+				>
 					██║ ██╔════╝╚██╗██╔╝██║██╔══██╗██╔════╝
 				</Text>
 			</Box>
 			<Box>
-				<Text bold color="cyan">
+				<Text
+					bold
+					color="cyan"
+				>
 					██║ █████╗ ╚███╔╝ ██║██████╔╝█████╗
 				</Text>
 			</Box>
 			<Box>
-				<Text bold color="cyan">
+				<Text
+					bold
+					color="cyan"
+				>
 					██║ ██╔══╝ ██╔██╗ ██║██╔══██╗██╔══╝
 				</Text>
 			</Box>
 			<Box marginBottom={2}>
-				<Text bold color="cyan">
+				<Text
+					bold
+					color="cyan"
+				>
 					███████╗██████╗ ███████╗██╗ ██╗███╗ ███╗
 				</Text>
 			</Box>
@@ -68,7 +83,10 @@ export default function Welcome({onComplete}: WelcomeProps) {
 				<Text color="magenta">{frames[frame % frames.length]}</Text>
 			</Box>
 			<Box marginTop={2}>
-				<Text bold color="green">
+				<Text
+					bold
+					color="green"
+				>
 					{pkg.name}
 				</Text>
 			</Box>

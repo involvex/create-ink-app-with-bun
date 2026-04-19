@@ -4,4 +4,4 @@ yarn.lock
 .mira
 .test
 *.log
-.test
+templates/

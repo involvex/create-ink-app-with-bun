@@ -3,18 +3,33 @@ import {Text, Box} from 'ink'
 
 export default function Help() {
 	return (
-		<Box flexDirection="column" padding={1}>
+		<Box
+			flexDirection="column"
+			padding={1}
+		>
 			<Box marginBottom={1}>
-				<Text bold color="cyan">
+				<Text
+					bold
+					color="cyan"
+				>
 					─── Help ───
 				</Text>
 			</Box>
 
-			<Box flexDirection="column" marginBottom={2}>
-				<Text bold color="magenta">
+			<Box
+				flexDirection="column"
+				marginBottom={2}
+			>
+				<Text
+					bold
+					color="magenta"
+				>
 					Usage:
 				</Text>
-				<Box marginLeft={2} flexDirection="column">
+				<Box
+					marginLeft={2}
+					flexDirection="column"
+				>
 					<Text>
 						{' '}
 						$ <Text color="white">{pkg.name}</Text>
@@ -34,11 +49,20 @@ export default function Help() {
 				</Box>
 			</Box>
 
-			<Box flexDirection="column" marginBottom={2}>
-				<Text bold color="magenta">
+			<Box
+				flexDirection="column"
+				marginBottom={2}
+			>
+				<Text
+					bold
+					color="magenta"
+				>
 					Options:
 				</Text>
-				<Box marginLeft={2} flexDirection="column">
+				<Box
+					marginLeft={2}
+					flexDirection="column"
+				>
 					<Text>
 						<Text color="green">--help</Text>
 						<Text dimColor> Show this help message</Text>
@@ -62,11 +86,20 @@ export default function Help() {
 				</Box>
 			</Box>
 
-			<Box flexDirection="column" marginBottom={2}>
-				<Text bold color="magenta">
+			<Box
+				flexDirection="column"
+				marginBottom={2}
+			>
+				<Text
+					bold
+					color="magenta"
+				>
 					Navigation:
 				</Text>
-				<Box marginLeft={2} flexDirection="column">
+				<Box
+					marginLeft={2}
+					flexDirection="column"
+				>
 					<Text>
 						<Text color="green">↑/↓</Text>
 						<Text dimColor> Navigate menu</Text>
@@ -83,10 +116,16 @@ export default function Help() {
 			</Box>
 
 			<Box flexDirection="column">
-				<Text bold color="magenta">
+				<Text
+					bold
+					color="magenta"
+				>
 					Commands:
 				</Text>
-				<Box marginLeft={2} flexDirection="column">
+				<Box
+					marginLeft={2}
+					flexDirection="column"
+				>
 					<Text>
 						{' '}
 						<Text color="cyan">help</Text> - Show this help

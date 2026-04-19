@@ -9,7 +9,7 @@
 		"allowSyntheticDefaultImports": true,
 		"esModuleInterop": true,
 		"skipLibCheck": true,
-		"types": ["node"]
+		"types": ["bun-types"]
 	},
 	"exclude": ["node_modules", "dist"],
 	"include": ["src", "eslint.config.ts"]

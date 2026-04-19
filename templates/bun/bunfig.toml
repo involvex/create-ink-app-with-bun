@@ -1,9 +1,9 @@
-# bunfig.toml - Bun configuration file
+# bunfig.toml - Bun configuration file for Ink CLI development
 # https://bun.sh/docs/runtime/bunfig
 
 [install]
-# Save exact versions instead of semver ranges
-# exact = true
+# Auto-install dependencies on import
+autoInstall = true
 
 # Set default registry
 registry = "https://registry.npmjs.org/"
@@ -15,35 +15,32 @@ node_modules = "node_modules"
 cache = "node_modules/.cache/bun"
 
 [test]
-# Test runner configuration
+# Test runner configuration for Ink
 # Coverage reporting
 # coverage = true
 
 # Run tests in parallel
-# parallel = true
+parallel = true
 
-# Watch mode
+# Watch mode for TDD
 # watch = true
 
 [dev]
-# Development server configuration
-# Port for dev server
-port = 3000
-
-# Host for dev server  
-host = "localhost"
-
-# Auto-reload on file changes
+# Hot reload for CLI development (important for Ink)
 hot = true
+
+# Disable auto-start for interactive CLIs
+# Interactive CLIs don't need a dev server
+autoRun = false
 
 [build]
 # Build output directory
 outdir = "dist"
 
-# Minification
+# Minification for production
 minify = true
 
-# Source maps
+# Source maps for debugging
 sourcemap = true
 
 # Target environment
@@ -57,17 +54,17 @@ fields = ["name", "version", "description"]
 # Node.js compatibility mode
 compat = "node"
 
-# Loader configuration for file types
 loader = {
   ".css" = "css",
-  ".js" = "jsx", 
-  ".ts" = "tsx",
-  ".tsx" = "tsx",
-  ".json" = "json",
-  ".txt" = "text"
+".js" = "jsx", ".ts" = "tsx",
+".tsx" = "tsx",
+".json" = "json",
+# Loader configuration for file types
+
 }
 
-# Environment variables
+".txt" = "text"
 env = {
-  NODE_ENV = "development"
-}
+  # Environment variables
+
+}NODE_ENV = "development"

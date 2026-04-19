@@ -29,12 +29,18 @@ export default function Exit() {
 			paddingY={10}
 		>
 			<Box marginBottom={2}>
-				<Text bold color="green">
+				<Text
+					bold
+					color="green"
+				>
 					Thank you for using
 				</Text>
 			</Box>
 			<Box marginBottom={2}>
-				<Text bold color="cyan">
+				<Text
+					bold
+					color="cyan"
+				>
 					{pkg.name}
 				</Text>
 			</Box>

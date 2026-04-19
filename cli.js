@@ -1,13 +1,15 @@
 #!/usr/bin/env node
-import createInkApp from './index.js'
 import process from 'node:process'
-import pkg from './package.json' with {type: 'json'}
 import hasFlag from 'has-flag'
 import prompts from 'prompts'
 import path from 'node:path'
 import meow from 'meow'
+
+import createInkApp from './index.js'
+import pkg from './package.json' with {type: 'json'}
+
 if (hasFlag('about') || hasFlag('--about')) {
-	console.log(pkg.name, ' v', pkg.version)
+	console.log(pkg.name, 'v', pkg.version)
 	console.log(pkg.author.name)
 	console.log(pkg.description)
 	console.log(pkg.repository.url)
@@ -22,12 +24,10 @@ if (hasFlag('about') || hasFlag('--about')) {
 	console.log(pkg.version)
 	process.exit(0)
 }
+
 const cli = meow(
 	`
 Options
-	--typescript		Use TypeScript React template
-	--bun			Use Bun instead of npm
-	--template		Specify a template (e.g. bun)
 	--no-git-init		Skip git initialization
 	--no-install		Skip dependency installation
 	--skip-prompts		Use defaults for all options
@@ -36,26 +36,16 @@ Options
 	--about			Show about
 
 Usage
-	$ create-ink-app <project-directory>
+	$ create-ink-app-with-bun <project-directory>
 
 Examples
 	$ create-ink-app-with-bun my-cli
 	$ create-ink-app-with-bun .
-	$ create-ink-app-with-bun my-cli --bun
-	$ create-ink-app-with-bun my-cli --bun --no-git-init --no-install
+	$ create-ink-app-with-bun my-cli --no-git-init --no-install
 `,
 	{
 		importMeta: import.meta,
 		flags: {
-			typescript: {
-				type: 'boolean',
-			},
-			bun: {
-				type: 'boolean',
-			},
-			template: {
-				type: 'string',
-			},
 			gitInit: {
 				type: 'boolean',
 				default: true,
@@ -170,10 +160,10 @@ try {
 			relativePath ? `  $ cd ${relativePath}` : undefined,
 			relativePath ? '' : undefined,
 			'Build:',
-			'  $ npm run build',
+			'  $ bun run build',
 			'',
 			'Watch and rebuild:',
-			'  $ npm run dev',
+			'  $ bun run dev',
 			'',
 			'Run:',
 			`  $ ${pkgName}`,

@@ -19,36 +19,17 @@ const temporaryProjectTask = async (type, callback) => {
 	})
 }
 
-test.serial('javascript app', async t => {
-	await temporaryProjectTask('js', async projectDirectory => {
+test.serial('bun app', async t => {
+	await temporaryProjectTask('bun', async projectDirectory => {
 		await createInkApp(projectDirectory, {
-			typescript: false,
 			silent: true,
 		})
 
-		const result = await execa('test-js-app')
+		const result = await execa('test-bun-app')
 		t.is(stripAnsi(result.stdout).trim(), 'Hello, Stranger')
 
 		await t.notThrowsAsync(
-			execa('npm', ['test'], {
-				cwd: projectDirectory,
-			}),
-		)
-	})
-})
-
-test.serial('typescript app', async t => {
-	await temporaryProjectTask('ts', async projectDirectory => {
-		await createInkApp(projectDirectory, {
-			typescript: false,
-			silent: true,
-		})
-
-		const result = await execa('test-ts-app')
-		t.is(stripAnsi(result.stdout).trim(), 'Hello, Stranger')
-
-		await t.notThrowsAsync(
-			execa('npm', ['test'], {
+			execa('bun', ['run', 'typecheck'], {
 				cwd: projectDirectory,
 			}),
 		)

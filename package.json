@@ -34,7 +34,13 @@
 		"test": "ava"
 	},
 	"xo": {
-		"prettier": true
+		"ignores": [
+			"templates/**"
+		],
+		"prettier": true,
+		"rules": {
+			"import-x/order": "off"
+		}
 	},
 	"prettier": "@involvex/prettier-config",
 	"ava": {
@@ -52,10 +58,10 @@
 		"slugify": "^1.6.9"
 	},
 	"devDependencies": {
-		"@involvex/prettier-config": "latest",
+		"@involvex/prettier-config": "0.0.5",
 		"ava": "^6.4.1",
 		"del": "^8.0.1",
-		"prettier": "^3.8.2",
+		"prettier": "^3.8.3",
 		"strip-ansi": "^7.2.0",
 		"tempy": "^3.2.0",
 		"xo": "^1.2.3"

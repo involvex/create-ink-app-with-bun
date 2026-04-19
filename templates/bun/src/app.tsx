@@ -35,7 +35,10 @@ function BackableScreen({children, onBack}: BackableScreenProps) {
 
 	return (
 		<Box flexDirection="column">
-			<Box paddingX={2} paddingY={1}>
+			<Box
+				paddingX={2}
+				paddingY={1}
+			>
 				<Text dimColor>← Esc to return to menu</Text>
 			</Box>
 			{children}
@@ -78,26 +81,42 @@ export default function App() {
 				padding={1}
 			>
 				<Box marginBottom={1}>
-					<Text bold color="cyan">
+					<Text
+						bold
+						color="cyan"
+					>
 						╔══════════════════════════════════╗
 					</Text>
 				</Box>
 				<Box marginX={2}>
-					<Text bold color="white" dimColor>
+					<Text
+						bold
+						color="white"
+						dimColor
+					>
 						{' '}
 						{pkg.name}
 					</Text>
 				</Box>
-				<Box marginX={2} marginBottom={1}>
+				<Box
+					marginX={2}
+					marginBottom={1}
+				>
 					<Text dimColor> {pkg.description}</Text>
 				</Box>
 				<Box marginBottom={1}>
-					<Text bold color="cyan">
+					<Text
+						bold
+						color="cyan"
+					>
 						╠══════════════════════════════════╣
 					</Text>
 				</Box>
 				<Box marginX={2}>
-					<Text bold color="magenta">
+					<Text
+						bold
+						color="magenta"
+					>
 						{' '}
 						Select an option:
 					</Text>
@@ -109,11 +128,17 @@ export default function App() {
 					}}
 				/>
 				<Box marginTop={1}>
-					<Text bold color="cyan">
+					<Text
+						bold
+						color="cyan"
+					>
 						╚══════════════════════════════════╝
 					</Text>
 				</Box>
-				<Box marginTop={1} paddingX={2}>
+				<Box
+					marginTop={1}
+					paddingX={2}
+				>
 					<Text dimColor>↑↓ Navigate • Enter Select • Esc Back</Text>
 				</Box>
 			</Box>

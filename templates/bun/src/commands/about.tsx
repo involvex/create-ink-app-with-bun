@@ -3,9 +3,15 @@ import {Text, Box} from 'ink'
 
 export default function About() {
 	return (
-		<Box flexDirection="column" padding={1}>
+		<Box
+			flexDirection="column"
+			padding={1}
+		>
 			<Box marginBottom={1}>
-				<Text bold color="cyan">
+				<Text
+					bold
+					color="cyan"
+				>
 					─── About ───
 				</Text>
 			</Box>
@@ -16,19 +22,35 @@ export default function About() {
 				padding={1}
 				marginBottom={2}
 			>
-				<Box flexDirection="column" alignItems="center">
-					<Text bold color="white">
+				<Box
+					flexDirection="column"
+					alignItems="center"
+				>
+					<Text
+						bold
+						color="white"
+					>
 						{pkg.name}
 					</Text>
 					<Text dimColor>{pkg.description}</Text>
 				</Box>
 			</Box>
 
-			<Box flexDirection="column" marginLeft={2} marginBottom={2}>
-				<Text bold color="magenta">
+			<Box
+				flexDirection="column"
+				marginLeft={2}
+				marginBottom={2}
+			>
+				<Text
+					bold
+					color="magenta"
+				>
 					Project Details:
 				</Text>
-				<Box flexDirection="column" marginLeft={2}>
+				<Box
+					flexDirection="column"
+					marginLeft={2}
+				>
 					<Text>
 						<Text color="cyan">Name:</Text>
 						<Text color="white"> {pkg.name}</Text>
@@ -54,7 +76,10 @@ export default function About() {
 				</Box>
 			</Box>
 
-			<Box borderStyle="single" padding={1}>
+			<Box
+				borderStyle="single"
+				padding={1}
+			>
 				<Text dimColor>Built with Ink + Bun + TypeScript</Text>
 			</Box>
 		</Box>
