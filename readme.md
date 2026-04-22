@@ -1,6 +1,6 @@
-# create-ink-app [![test](https://github.com/vadimdemedes/create-ink-app/workflows/test/badge.svg)](https://github.com/vadimdemedes/create-ink-app/actions)
+# create-ink-app-with-bun [![test](https://github.com/vadimdemedes/create-ink-app/workflows/test/badge.svg)](https://github.com/vadimdemedes/create-ink-app/actions)
 
-> Generate a starter [Ink](https://github.com/vadimdemedes/ink) app
+> Generate a starter [Ink](https://github.com/vadimdemedes/ink) app — **This is a fork of create-ink-app**
 
 ## Usage
 
