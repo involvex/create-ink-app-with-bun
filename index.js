@@ -1,11 +1,11 @@
 import replaceString from 'replace-string'
-import {fileURLToPath} from 'node:url'
-import {makeDirectory} from 'make-dir'
+import { fileURLToPath } from 'node:url'
+import { makeDirectory } from 'make-dir'
 import process from 'node:process'
 import fs from 'node:fs/promises'
 import slugify from 'slugify'
 import path from 'node:path'
-import {execa} from 'execa'
+import { execa } from 'execa'
 import Listr from 'listr'
 
 const copyWithTemplate = async (from, to, variables) => {
@@ -17,21 +17,9 @@ const copyWithTemplate = async (from, to, variables) => {
 
 	if (typeof variables === 'object') {
 		generatedSource = replaceString(source, '%NAME%', variables.name)
-		generatedSource = replaceString(
-			generatedSource,
-			'%AUTHOR%',
-			variables.author,
-		)
-		generatedSource = replaceString(
-			generatedSource,
-			'%LICENSE%',
-			variables.license,
-		)
-		generatedSource = replaceString(
-			generatedSource,
-			'%DESCRIPTION%',
-			variables.description || '',
-		)
+		generatedSource = replaceString(generatedSource, '%AUTHOR%', variables.author)
+		generatedSource = replaceString(generatedSource, '%LICENSE%', variables.license)
+		generatedSource = replaceString(generatedSource, '%DESCRIPTION%', variables.description || '')
 	}
 
 	await fs.writeFile(to, generatedSource)
@@ -39,7 +27,7 @@ const copyWithTemplate = async (from, to, variables) => {
 
 const createInkApp = (
 	projectDirectoryPath = process.cwd(),
-	{silent, author, license, description, gitInit = true, install = true},
+	{ silent, author, license, description, gitInit = true, install = true },
 ) => {
 	const pkgName = slugify(path.basename(projectDirectoryPath))
 
@@ -53,8 +41,7 @@ const createInkApp = (
 
 	const templatePath = 'templates/bun'
 
-	const fromPath = file =>
-		path.join(path.resolve(__dirname, templatePath), file)
+	const fromPath = (file) => path.join(path.resolve(__dirname, templatePath), file)
 
 	const toPath = (rootPath, file) => path.join(rootPath, file)
 
@@ -86,11 +73,9 @@ const createInkApp = (
 									variables,
 								)
 
-								await fs.cp(
-									fromPath('src'),
-									toPath(projectDirectoryPath, 'src'),
-									{recursive: true},
-								)
+								await fs.cp(fromPath('src'), toPath(projectDirectoryPath, 'src'), {
+									recursive: true,
+								})
 
 								await copyWithTemplate(
 									fromPath('src/cli.tsx'),

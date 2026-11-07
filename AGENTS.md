@@ -56,7 +56,7 @@ npx prettier --write .
 ```javascript
 import createInkApp from './index.js'
 import path from 'node:path'
-import {execa} from 'execa'
+import { execa } from 'execa'
 ```
 
 ### Naming Conventions

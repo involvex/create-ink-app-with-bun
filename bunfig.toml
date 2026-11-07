@@ -1,0 +1,11 @@
+[fmt]
+useTabs = true
+singleQuote = true
+semi = false
+printWidth = 100
+
+[lint]
+# Root project lints src/cli/index/tests; templates are scaffolded output
+
+[test]
+timeout = 300000

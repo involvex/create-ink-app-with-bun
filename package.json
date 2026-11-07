@@ -29,22 +29,9 @@
 	],
 	"scripts": {
 		"dev": "bun run cli.js",
-		"format": "prettier --write .",
-		"lint": "xo",
-		"test": "ava"
-	},
-	"xo": {
-		"ignores": [
-			"templates/**"
-		],
-		"prettier": true,
-		"rules": {
-			"import-x/order": "off"
-		}
-	},
-	"prettier": "@involvex/prettier-config",
-	"ava": {
-		"timeout": "5m"
+		"format": "bun fmt --ignore-pattern \"templates/**\"",
+		"lint": "bun lint --ignore-pattern \"templates/**\"",
+		"test": "bun test --timeout 300000"
 	},
 	"dependencies": {
 		"cpy": "^13.2.1",
@@ -58,13 +45,9 @@
 		"slugify": "^1.6.9"
 	},
 	"devDependencies": {
-		"@involvex/prettier-config": "0.0.5",
-		"ava": "^6.4.1",
 		"del": "^8.0.1",
-		"prettier": "^3.8.3",
 		"strip-ansi": "^7.2.0",
-		"tempy": "^3.2.0",
-		"xo": "^1.2.3"
+		"tempy": "^3.2.0"
 	},
 	"engines": {
 		"node": ">=16"

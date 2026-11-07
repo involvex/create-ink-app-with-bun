@@ -6,7 +6,7 @@ import path from 'node:path'
 import meow from 'meow'
 
 import createInkApp from './index.js'
-import pkg from './package.json' with {type: 'json'}
+import pkg from './package.json' with { type: 'json' }
 
 if (hasFlag('about') || hasFlag('--about')) {
 	console.log(pkg.name, 'v', pkg.version)
@@ -15,12 +15,7 @@ if (hasFlag('about') || hasFlag('--about')) {
 	console.log(pkg.repository.url)
 	console.log(pkg.sponsor.url)
 	process.exit(0)
-} else if (
-	hasFlag('version') ||
-	hasFlag('--version') ||
-	hasFlag('v') ||
-	hasFlag('-v')
-) {
+} else if (hasFlag('version') || hasFlag('--version') || hasFlag('v') || hasFlag('-v')) {
 	console.log(pkg.version)
 	process.exit(0)
 }
@@ -169,8 +164,8 @@ try {
 			`  $ ${pkgName}`,
 			'',
 		]
-			.filter(line => line !== undefined)
-			.map(line => `  ${line}`)
+			.filter((line) => line !== undefined)
+			.map((line) => `  ${line}`)
 			.join('\n'),
 	)
 } catch (error) {

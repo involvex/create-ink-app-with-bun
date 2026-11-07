@@ -56,15 +56,13 @@ compat = "node"
 
 loader = {
   ".css" = "css",
-".js" = "jsx", ".ts" = "tsx",
-".tsx" = "tsx",
-".json" = "json",
-# Loader configuration for file types
-
+  ".js" = "jsx",
+  ".ts" = "tsx",
+  ".tsx" = "tsx",
+  ".json" = "json",
+  ".txt" = "text",
 }
 
-".txt" = "text"
 env = {
-  # Environment variables
-
-}NODE_ENV = "development"
+  NODE_ENV = "development"
+}
