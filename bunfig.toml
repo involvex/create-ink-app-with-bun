@@ -4,11 +4,14 @@ singleQuote = true
 semi = false
 printWidth = 100
 
-[lint]
-# Root project lints src/cli/index/tests; templates are scaffolded output
-
-[lint.rules]
-"bun:test/no-disabled-tests" = "off"
 
 [test]
 timeout = 300000
+
+[lint]
+typeAware = true # also run the rules that need types
+
+[lint.rules]
+# "no-console" = "warn"
+# "eqeqeq" = ["error", "smart"]
+"bun:test/no-disabled-tests" = "off"

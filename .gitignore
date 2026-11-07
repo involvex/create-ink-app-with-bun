@@ -4,4 +4,7 @@ yarn.lock
 .mira
 .test
 *.log
-templates/
+.kilo/
+
+.cline/
+.kilo/plans/

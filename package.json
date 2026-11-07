@@ -31,7 +31,8 @@
 		"dev": "bun run cli.js",
 		"format": "bun fmt --ignore-pattern \"templates/**\"",
 		"lint": "bun lint --ignore-pattern \"templates/**\"",
-		"test": "bun test --timeout 300000"
+		"test": "bun test --timeout 300000",
+		"verify": "bun run format && bun run lint && bun run test"
 	},
 	"dependencies": {
 		"cpy": "^13.2.1",
